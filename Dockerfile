@@ -4,12 +4,16 @@ MAINTAINER Ingo Müller <ingo.mueller@inf.ethz.ch>
 # Basics
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        curl \
-        git \
-        git-lfs \
+        # For further Docker layers
         python3-pip \
         wget \
+        # For the upload script
+        curl \
+        ghostscript \
         zip \
+        # For the large files test
+        git \
+        git-lfs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # wkhtmltopdf
